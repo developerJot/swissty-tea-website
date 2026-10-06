@@ -1019,6 +1019,454 @@
 
 
 
+    <style>
+        /* ---------- Info Strip (features + where to buy + contact) ---------- */
+        .sh-info {
+            background: linear-gradient(180deg, #fff5f1 0%, var(--sh-bg) 100%);
+            padding: 60px 0 50px;
+            overflow: hidden;
+        }
+
+        /* Feature icons */
+        .sh-feature {
+            text-align: center;
+        }
+
+        .sh-feature-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            border: 2px solid var(--sh-pink);
+            background: #fff;
+            color: var(--sh-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            transition: transform .2s, background .2s, color .2s;
+        }
+
+        .sh-feature:hover .sh-feature-icon {
+            background: var(--sh-pink);
+            color: #fff;
+            transform: translateY(-4px);
+        }
+
+        .sh-feature p {
+            font-size: .85rem;
+            font-weight: 500;
+            line-height: 1.35;
+            color: var(--sh-crimson);
+            margin: 0;
+        }
+
+        /* ---------- Available at bar ---------- */
+        .sh-avail {
+            display: flex;
+            align-items: center;
+            gap: 14px 24px;
+            background: #fff;
+            border: 1px solid rgba(238, 77, 122, .25);
+            border-radius: 60px;
+            padding: 8px;
+            margin-top: 2.2rem;
+        }
+
+        .sh-avail-label {
+            background: var(--sh-pink);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            padding: .7rem 1.4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .sh-avail-list {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            padding: 0 12px 0 0;
+            margin: 0;
+            list-style: none;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sh-avail-list li {
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: var(--sh-text);
+        }
+
+        .sh-avail-list a {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform .2s, opacity .2s;
+        }
+
+        .sh-avail-list a:hover {
+            transform: translateY(-2px);
+            opacity: .85;
+        }
+
+        .sh-avail-list .fa-shopify {
+            color: #95bf47;
+            font-size: 1.6rem;
+        }
+
+        .sh-avail-list .fa-amazon {
+            color: #232f3e;
+            font-size: 1.6rem;
+        }
+
+        .sh-avail-list .shopee {
+            color: #ee4d2d;
+        }
+
+        .sh-avail-list .temu {
+            color: #fb7701;
+        }
+
+        .sh-avail-list .fa-globe {
+            color: var(--sh-pink);
+            font-size: 1.4rem;
+        }
+
+        /* ---------- Contact bar ---------- */
+        .sh-contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            gap: 12px 24px;
+            background: rgba(255, 255, 255, .8);
+            border: 1px solid rgba(238, 77, 122, .25);
+            border-radius: 60px;
+            padding: 12px 24px;
+            margin: 1rem 0 0;
+            list-style: none;
+        }
+
+        .sh-contact-bar li {
+            font-weight: 600;
+            font-size: .98rem;
+            min-width: 0;
+        }
+
+        .sh-contact-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            color: var(--sh-crimson);
+            text-decoration: none;
+            cursor: pointer;
+            transition: color .2s;
+            overflow-wrap: anywhere;
+        }
+
+        .sh-contact-bar a:hover {
+            color: var(--sh-pink);
+        }
+
+        .sh-contact-bar .ico {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+            transition: transform .2s;
+        }
+
+        .sh-contact-bar a:hover .ico {
+            transform: scale(1.08);
+        }
+
+        .ico-ig {
+            background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+        }
+
+        .ico-tt {
+            background: #000;
+        }
+
+        .ico-mail {
+            background: var(--sh-pink);
+        }
+
+        .ico-wa {
+            background: #25d366;
+        }
+
+        /* Website + ABN line */
+        .sh-info-foot {
+            text-align: center;
+            font-size: .85rem;
+            color: var(--sh-crimson);
+            margin: 1.2rem 0 0;
+        }
+
+        .sh-info-foot a {
+            color: var(--sh-crimson);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .sh-info-foot a:hover {
+            color: var(--sh-pink);
+        }
+
+        .sh-info-foot .sep {
+            margin: 0 .6rem;
+            opacity: .5;
+        }
+
+        /* ---------- Responsive ---------- */
+
+        /* Tablet: label on top, stores in one centered row */
+        @media (max-width: 991.98px) {
+            .sh-avail {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 30px;
+                padding: 12px;
+                gap: 14px;
+            }
+
+            .sh-avail-label {
+                width: 100%;
+            }
+
+            .sh-avail-list {
+                justify-content: center;
+                padding: 0 0 4px;
+                gap: 12px 28px;
+            }
+
+            .sh-contact-bar {
+                border-radius: 30px;
+                justify-content: center;
+                gap: 14px 30px;
+            }
+        }
+
+        /* Mobile: stores become a 2-column grid of pills */
+        @media (max-width: 575.98px) {
+            .sh-info {
+                padding: 45px 0 40px;
+            }
+
+            .sh-feature-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.15rem;
+            }
+
+            .sh-feature p {
+                font-size: .78rem;
+            }
+
+            .sh-avail {
+                border-radius: 24px;
+                padding: 10px;
+            }
+
+            .sh-avail-label {
+                font-size: .95rem;
+                padding: .65rem 1rem;
+            }
+
+            .sh-avail-list {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+                padding: 0;
+            }
+
+            .sh-avail-list li {
+                font-size: .95rem;
+            }
+
+            .sh-avail-list li a {
+                width: 100%;
+                justify-content: center;
+                background: var(--sh-bg);
+                border-radius: 50px;
+                padding: .6rem .5rem;
+            }
+
+            /* last (5th) item takes the full row so the grid looks balanced */
+            .sh-avail-list li:last-child {
+                grid-column: 1 / -1;
+            }
+
+            .sh-contact-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                border-radius: 24px;
+                padding: 16px 20px;
+                gap: 12px;
+            }
+
+            .sh-contact-bar li {
+                font-size: .92rem;
+                max-width: 100%;
+            }
+
+            .sh-info-foot {
+                font-size: .8rem;
+                line-height: 1.7;
+            }
+
+            .sh-info-foot .sep {
+                display: block;
+                height: 0;
+                overflow: hidden;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 360px) {
+            .sh-avail-list {
+                grid-template-columns: 1fr;
+            }
+
+            .sh-avail-list li:last-child {
+                grid-column: auto;
+            }
+        }
+    </style>
+
+    <!-- ============ INFO STRIP ============ -->
+    <section class="sh-info" id="why">
+        <div class="container-xl">
+
+            <!-- Features -->
+            <div class="row row-cols-3 row-cols-md-6 g-4">
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <p>Natural<br>Ingredients</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-heart"></i></div>
+                    <p>No Artificial<br>Flavours</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-spa"></i></div>
+                    <p>Soothing<br>&amp; Refreshing</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <p>Perfect for<br>Daily Life</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-gift"></i></div>
+                    <p>A Sweeter<br>You</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-regular fa-heart"></i></div>
+                    <p>Made with<br>Love</p>
+                </div>
+            </div>
+
+            <!-- Available at -->
+            <div class="sh-avail">
+                <span class="sh-avail-label"><i class="fa-solid fa-cart-shopping"></i> Available at</span>
+                <ul class="sh-avail-list">
+                    <li><a href="https://YOUR-SHOPIFY-STORE-LINK" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-shopify"></i> Shopify</a></li>
+                    <li><a href="https://YOUR-AMAZON-STORE-LINK" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-amazon"></i> Amazon</a></li>
+                    <li class="shopee"><a href="https://YOUR-SHOPEE-STORE-LINK" target="_blank" rel="noopener"><i
+                                class="fa-solid fa-bag-shopping"></i> Shopee</a></li>
+                    <li class="temu"><a href="https://YOUR-TEMU-STORE-LINK" target="_blank" rel="noopener"><i
+                                class="fa-solid fa-store"></i> Temu</a></li>
+                    <li><a href="https://www.swisstytea.com" target="_blank" rel="noopener"><i
+                                class="fa-solid fa-globe"></i> Online Store</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact bar -->
+            <ul class="sh-contact-bar">
+                <li>
+                    <a href="https://www.instagram.com/swisstytea" target="_blank" rel="noopener">
+                        <span class="ico ico-ig"><i class="fa-brands fa-instagram"></i></span> Swisstytea
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/@swisstytea" target="_blank" rel="noopener">
+                        <span class="ico ico-tt"><i class="fa-brands fa-tiktok"></i></span> Swisstytea
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:swissty@swisstytea.com">
+                        <span class="ico ico-mail"><i class="fa-regular fa-envelope"></i></span> swissty@swisstytea.com
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/61499568846?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20teas."
+                        target="_blank" rel="noopener">
+                        <span class="ico ico-wa"><i class="fa-brands fa-whatsapp"></i></span> +61 499 568 846
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Website + ABN -->
+            <p class="sh-info-foot">
+                <i class="fa-solid fa-globe"></i>
+                <a href="https://www.swisstytea.com" target="_blank" rel="noopener">www.Swisstytea.com</a>
+                <span class="sep">|</span>
+                ABN 74 882 859 107 &nbsp;Australia Registered Business
+            </p>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1060,8 +1508,8 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(to right, var(--sh-bg) 0%, rgba(253, 238, 233, 0) 28%),
-                linear-gradient(to bottom, var(--sh-bg) 0%, rgba(253, 238, 233, 0) 14%);
+                linear-gradient(to right, var(--sh-bg) 0%, rgba(253, 238, 233, 0) 10%),
+                linear-gradient(to bottom, var(--sh-bg) 0%, rgba(253, 238, 233, 0) 10%);
         }
 
         .sh-banner .container-xl {
@@ -1188,6 +1636,316 @@
         <!-- real text for accessibility / SEO since the image is decorative -->
         <span class="visually-hidden">Swissytea by Chimmy - with all the love and soul from Switzerland</span>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        /* ---------- Footer ---------- */
+        .sh-footer {
+            background: var(--sh-pink);
+            color: #fff;
+            padding: 70px 0 0;
+        }
+
+        .sh-footer a {
+            text-decoration: none;
+        }
+
+        .sh-footer-logo {
+            display: block;
+            width: 100%;
+            max-width: 160px;
+            aspect-ratio: 5 / 3;
+            border: 1px solid #fff;
+            border-radius: 8px;
+            object-fit: contain;
+            background: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .sh-footer-about {
+            font-size: .9rem;
+            line-height: 1.7;
+            max-width: 320px;
+            margin-bottom: 1.2rem;
+            color: rgba(255, 255, 255, .92);
+        }
+
+        .sh-footer-title {
+            font-family: var(--font-script);
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .sh-footer-links,
+        .sh-footer-contact,
+        .sh-social {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sh-footer-links li {
+            margin-bottom: .55rem;
+        }
+
+        .sh-footer-links a {
+            color: rgba(255, 255, 255, .92);
+            font-size: .92rem;
+            transition: color .2s, padding-left .2s;
+        }
+
+        .sh-footer-links a:hover {
+            color: #fff;
+            padding-left: 4px;
+        }
+
+        .sh-footer-contact {
+            font-size: .92rem;
+        }
+
+        .sh-footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: .7rem;
+            margin-bottom: .75rem;
+            word-break: break-word;
+        }
+
+        .sh-footer-contact i {
+            color: #fff;
+            margin-top: 4px;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .sh-footer-contact a,
+        .sh-footer-contact span {
+            color: rgba(255, 255, 255, .92);
+        }
+
+        .sh-footer-contact a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Social icons */
+        .sh-social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .6rem;
+        }
+
+        .sh-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: var(--sh-pink);
+            border: 1px solid #fff;
+            transition: background .2s, color .2s, transform .2s;
+        }
+
+        .sh-social a:hover {
+            background: transparent;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .sh-footer a:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 3px;
+        }
+
+        /* Bottom bar */
+        .sh-footer-bottom {
+            margin-top: 50px;
+            padding: 18px 0;
+            border-top: 1px solid rgba(255, 255, 255, .35);
+            font-size: .85rem;
+            text-align: center;
+            color: rgba(255, 255, 255, .95);
+        }
+
+        .sh-footer-bottom .fa-heart {
+            color: #fff;
+        }
+
+        /* ---------- Responsive ---------- */
+
+        /* Tablet */
+        @media (max-width: 991.98px) {
+            .sh-footer {
+                padding-top: 56px;
+            }
+
+            .sh-footer-bottom {
+                margin-top: 36px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 767.98px) {
+            .sh-footer {
+                padding-top: 48px;
+                text-align: center;
+            }
+
+            .sh-footer-logo,
+            .sh-footer-about {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .sh-footer-contact li {
+                justify-content: center;
+                text-align: left;
+            }
+
+            .sh-social {
+                justify-content: center;
+            }
+
+            .sh-footer-links a:hover {
+                padding-left: 0;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 420px) {
+            .sh-footer-logo {
+                max-width: 130px;
+            }
+
+            .sh-footer-title {
+                font-size: 1.3rem;
+            }
+
+            .sh-footer-bottom {
+                font-size: .78rem;
+            }
+        }
+    </style>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="sh-footer" id="contact">
+        <div class="container-xl">
+            <div class="row g-4 g-lg-5">
+
+                <!-- Brand -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Empty logo placeholder: replace the src with your logo -->
+                    <img class="sh-footer-logo"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="Swissherb Tea logo">
+                    <p class="sh-footer-about">
+                        Pure, natural Swiss-inspired teas blended with the finest herbs, for a calm and happy moment in
+                        every cup.
+                    </p>
+                    <ul class="sh-social">
+                        <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+                        <li><a href="https://wa.me/61499568846" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                                    class="fa-brands fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick links -->
+                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+                    <h3 class="sh-footer-title">Quick Links</h3>
+                    <ul class="sh-footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#why">Why Swissherb</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our teas -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h3 class="sh-footer-title">Our Teas</h3>
+                    <ul class="sh-footer-links">
+                        <li><a href="#shop">Chamomile Tea</a></li>
+                        <li><a href="#shop">Matcha Green Tea</a></li>
+                        <li><a href="#shop">Butterfly Pea Tea</a></li>
+                        <li><a href="#shop">Strawberry Hibiscus</a></li>
+                        <li><a href="#shop">Vanilla Oolong</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h3 class="sh-footer-title">Get In Touch</h3>
+                    <ul class="sh-footer-contact">
+                        <li>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a href="https://wa.me/61499568846" target="_blank" rel="noopener">+61 499 568 846</a>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-envelope"></i>
+                            <a href="mailto:hello@swissherbtea.com">hello@swissherbtea.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Inspired by the Swiss Alps</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="sh-footer-bottom">
+                &copy; <span id="shYear">2026</span> Swissytea by Chimmy. Made with <i class="fa-solid fa-heart"></i>
+                and
+                a little Swiss magic.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('shYear').textContent = new Date().getFullYear();
+    </script>
 
 
 
