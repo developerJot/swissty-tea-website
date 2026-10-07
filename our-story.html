@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Swissherb Tea | A Cup of Purity, From Switzerland</title>
+
+    <!-- Bootstrap 5 + Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <!-- Fonts: Caveat Brush (headline, closest match) + Poppins (nav/body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/style.css">
+
+
+</head>
+
+<body>
+
+    <!-- ============ HEADER / NAV ============ -->
+    <nav class="navbar navbar-expand-lg sh-nav" id="mainNav">
+        <div class="container-xl">
+            <a class="navbar-brand sh-logo" href="#home" aria-label="Swissherb Tea home">
+                <!-- Replace with your logo file -->
+                <img src="./img/logo.png" alt="Swissherb Tea"
+                    onerror="this.outerHTML='<span class=&quot;sh-logo-fallback&quot;>Swissherb Tea</span>'">
+            </a>
+
+            <div class="d-flex align-items-center order-lg-3">
+                <a href="#contact" class="btn-sh btn-sh-primary btn-contact">
+                    <i class="fa-regular fa-envelope"></i> Contact
+                </a>
+                <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                    aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-center order-lg-2" id="navMenu">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="./our-story.html">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why">Why Swissherb</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <!-- <header class="sh-hero" id="home">
+        <div class="sh-note" aria-hidden="true">
+            Our unique tea mesh bag with ice cream stick!
+            <svg viewBox="0 0 40 50" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <path d="M6 4 C 30 8, 36 26, 20 44" />
+                <path d="M20 44 l-1 -11 M20 44 l9 -6" />
+            </svg>
+        </div>
+
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="sh-hero-copy">
+                        <p class="sh-eyebrow">Premium Tea From The Alps</p>
+
+                        <h1 class="sh-title">
+                            A Cup of Purity, From Switzerland
+                            <svg class="spark" viewBox="0 0 40 30" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" aria-hidden="true">
+                                <path d="M4 26 L16 14" />
+                                <path d="M18 8 L22 2" />
+                                <path d="M26 18 L38 14" />
+                            </svg>
+                            <i class="fa-regular fa-heart heart" aria-hidden="true"></i>
+                        </h1>
+
+                        <p class="sh-lead">
+                            Experience the natural goodness of Swiss herbs and premium tea leaves, crafted for a
+                            healthier, happier you.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="#shop" class="btn-sh btn-sh-primary"><i class="fa-solid fa-cart-shopping"></i> Shop
+                                Our Teas <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="#story" class="btn-sh btn-sh-outline"><i class="fa-regular fa-circle-play"></i>
+                                Watch Our Story</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        /* =========================================================
+   ABOUT / OUR STORY SECTION
+   All classes start with "about-"
+   ========================================================= */
+
+        .about-section {
+            --about-pink: #f0457a;
+            --about-pink-2: #ff6b8f;
+            --about-title: #a8325a;
+            --about-text: #4a3a40;
+            --about-bg: #fff8f5;
+
+            background: var(--about-bg);
+            padding: 90px 0;
+            color: var(--about-text);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        /* ---------- Heading ---------- */
+        .about-head {
+            text-align: center;
+            margin-bottom: 3.2rem;
+        }
+
+        .about-eyebrow {
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--about-pink);
+            margin: 0 0 .4rem;
+        }
+
+        .about-title {
+            font-family: var(--font-script, 'Caveat Brush', cursive);
+            color: var(--about-title);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            line-height: 1.1;
+            margin: 0 0 .8rem;
+        }
+
+        .about-tagline {
+            color: var(--about-pink);
+            font-weight: 500;
+            font-size: 1.02rem;
+            margin: 0;
+        }
+
+        /* ---------- Intro: photo + text ---------- */
+        .about-intro {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 3.5rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .about-photo {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-photo::before {
+            content: "";
+            position: absolute;
+            inset: 6% 2% -4% 6%;
+            background: #ffd9de;
+            opacity: .7;
+            border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+            z-index: 0;
+        }
+
+        .about-photo img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 460px;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 30px 24px 32px 26px / 26px 32px 24px 30px;
+            box-shadow: 0 18px 36px rgba(120, 60, 80, .18);
+            display: block;
+        }
+
+        .about-flags {
+            position: absolute;
+            z-index: 2;
+            bottom: -14px;
+            right: 8%;
+            display: flex;
+            gap: .5rem;
+            background: #fff;
+            padding: .5rem 1rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(120, 60, 80, .15);
+            font-size: 1.4rem;
+        }
+
+        .about-text p {
+            font-size: 1.02rem;
+            line-height: 1.8;
+            margin: 0 0 1.1rem;
+        }
+
+        .about-text .about-lead {
+            font-size: 1.15rem;
+            color: var(--about-title);
+            font-weight: 500;
+        }
+
+        .about-love {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            margin-top: .6rem;
+            padding: .65rem 1.2rem;
+            background: #ffe3ea;
+            color: var(--about-pink);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: .92rem;
+        }
+
+        /* ---------- Teas ---------- */
+        .about-teas-head {
+            text-align: center;
+            margin-bottom: 2.2rem;
+        }
+
+        .about-teas-title {
+            font-family: var(--font-script, 'Caveat Brush', cursive);
+            color: var(--about-title);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin: 0;
+        }
+
+        .about-teas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4.5rem;
+        }
+
+        .about-card {
+            --about-card-bg: #fde4de;
+            --about-card-title: #b8325a;
+            background: var(--about-card-bg);
+            border-radius: 30px 24px 32px 26px / 26px 32px 24px 30px;
+            padding: 2rem 1.5rem 1.8rem;
+            text-align: center;
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 30px rgba(120, 60, 80, .14);
+        }
+
+        .about-card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .6);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card-name {
+            font-family: var(--font-script, 'Caveat Brush', cursive);
+            color: var(--about-card-title);
+            font-size: 1.4rem;
+            margin: 0 0 .6rem;
+        }
+
+        .about-card-desc {
+            font-size: .88rem;
+            line-height: 1.65;
+            color: var(--about-card-title);
+            opacity: .9;
+            margin: 0;
+        }
+
+        /* card colours */
+        .about-card-honey {
+            --about-card-bg: #fdecd2;
+            --about-card-title: #9a5b12;
+        }
+
+        .about-card-ginger {
+            --about-card-bg: #fff3c9;
+            --about-card-title: #8a6a0c;
+        }
+
+        .about-card-chamomile {
+            --about-card-bg: #fde4de;
+            --about-card-title: #b8325a;
+        }
+
+        .about-card-green {
+            --about-card-bg: #eef2cf;
+            --about-card-title: #3f4a1a;
+        }
+
+        /* ---------- Closing message ---------- */
+        .about-closing {
+            position: relative;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 2.8rem 2.5rem;
+            text-align: center;
+            background: #fff;
+            border-radius: 32px 26px 34px 28px / 28px 34px 26px 32px;
+            box-shadow: 0 16px 36px rgba(120, 60, 80, .1);
+        }
+
+        .about-closing-heart {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--about-pink);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 18px rgba(240, 69, 122, .35);
+        }
+
+        .about-closing-text {
+            font-size: 1.08rem;
+            line-height: 1.85;
+            margin: 0 0 1.4rem;
+        }
+
+        .about-closing-sign {
+            font-family: var(--font-script, 'Caveat Brush', cursive);
+            color: var(--about-title);
+            font-size: 1.7rem;
+            margin: 0 0 .3rem;
+        }
+
+        .about-closing-sub {
+            color: var(--about-pink);
+            font-size: .92rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1199.98px) {
+            .about-teas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .about-section {
+                padding: 70px 0;
+            }
+
+            .about-intro {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                margin-bottom: 4rem;
+            }
+
+            .about-photo img {
+                max-width: 380px;
+            }
+
+            .about-text {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .about-teas {
+                grid-template-columns: 1fr;
+            }
+
+            .about-closing {
+                padding: 2.4rem 1.4rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .about-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+
+
+
+
+
+    <!-- ============ ABOUT / OUR STORY ============ -->
+    <section class="about-section" id="story">
+        <div class="container-xl">
+
+            <!-- Heading -->
+            <div class="about-head">
+                <p class="about-eyebrow">Our Story</p>
+                <h2 class="about-title">SWISSTYTEA by Chimmy</h2>
+                <p class="about-tagline">Made with love. Inspired by Switzerland. Created with soul.</p>
+            </div>
+
+            <!-- Intro -->
+            <div class="about-intro">
+                <div class="about-photo">
+                    <!-- Replace with Chimmy's photo or a brand image -->
+                    <img src="./img/our-story-image.png" alt="Chimmy, founder of SWISSTYTEA">
+                    <div class="about-flags" aria-hidden="true">🇹🇭 🇱🇰 🇨🇭</div>
+                </div>
+
+                <div class="about-text">
+                    <p class="about-lead">
+                        Welcome to SWISSTYTEA by Chimmy — a special tea brand created with love, warmth, and a
+                        passion for beautiful moments.
+                    </p>
+                    <p>
+                        Originally from Thailand, Chimmy now lives in Switzerland, a country that has become deeply
+                        meaningful to her. She chose Switzerland as the inspiration for SWISSTYTEA because she has
+                        given her heart and soul to this beautiful place. Guided by a secret ingredient passed down
+                        from her parents — love — Chimmy created SWISSTYTEA to share warmth, happiness, and sweet
+                        harmony with people around the world.
+                    </p>
+                    <p>
+                        She loves both Sri Lankan tea and Thai tea, and brings these inspirations together with the
+                        beauty, quality, and spirit of Switzerland. Our teas are thoughtfully created with natural
+                        ingredients and a touch of Swiss, Sri Lankan, and Asian-inspired elegance.
+                    </p>
+                    <span class="about-love"><i class="fa-solid fa-heart"></i> The secret ingredient is love</span>
+                </div>
+            </div>
+
+            <!-- Teas -->
+            <div class="about-teas-head">
+                <h3 class="about-teas-title">Our Teas</h3>
+            </div>
+
+            <div class="about-teas">
+
+                <article class="about-card about-card-honey">
+                    <span class="about-card-icon" aria-hidden="true">🍯</span>
+                    <h4 class="about-card-name">Sweet Honey Black Tea</h4>
+                    <p class="about-card-desc">
+                        A smooth and comforting black tea blended with the natural sweetness of honey. Rich, warm, and
+                        satisfying, it is perfect for relaxing, enjoying a quiet moment, or sharing with someone
+                        special.
+                    </p>
+                </article>
+
+                <article class="about-card about-card-ginger">
+                    <span class="about-card-icon" aria-hidden="true">🍋</span>
+                    <h4 class="about-card-name">Ginger Honey Lemon Tea</h4>
+                    <p class="about-card-desc">
+                        A refreshing and warming blend of ginger, honey, and lemon. Created to offer a naturally
+                        comforting experience, it combines a bright citrus flavor with a gentle warmth.
+                    </p>
+                </article>
+
+                <article class="about-card about-card-chamomile">
+                    <span class="about-card-icon" aria-hidden="true">🌼</span>
+                    <h4 class="about-card-name">Chamomile Tea</h4>
+                    <p class="about-card-desc">
+                        A gentle and soothing herbal tea with a delicate floral aroma. Perfect for peaceful moments,
+                        relaxation, and winding down at the end of the day.
+                    </p>
+                </article>
+
+                <article class="about-card about-card-green">
+                    <span class="about-card-icon" aria-hidden="true">🍃</span>
+                    <h4 class="about-card-name">Green Tea</h4>
+                    <p class="about-card-desc">
+                        A light and refreshing tea with a clean, delicate taste. Perfect for enjoying a calm moment
+                        and bringing a little natural freshness to your day.
+                    </p>
+                </article>
+
+            </div>
+
+            <!-- Closing message -->
+            <div class="about-closing">
+                <span class="about-closing-heart" aria-hidden="true"><i class="fa-solid fa-heart"></i></span>
+                <p class="about-closing-text">
+                    At SWISSTYTEA, we believe tea is more than a drink. It is a moment of comfort, connection, and
+                    self-care. Every cup is made with love to help you relax, feel warm, and enjoy a little sweetness
+                    and harmony in your day. Our wish is to share this heart and soul with people around the world,
+                    one beautiful cup at a time.
+                </p>
+                <p class="about-closing-sign">SWISSTYTEA by Chimmy</p>
+                <p class="about-closing-sub">
+                    Made with love and soul, inspired by Sri Lanka, Thailand, and Switzerland. 🇱🇰 🇹🇭 🇨🇭 🍯 ☕
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="sh-footer" id="contact">
+        <div class="container-xl">
+            <div class="row g-4 g-lg-5">
+
+                <!-- Brand -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Empty logo placeholder: replace the src with your logo -->
+                    <img class="sh-footer-logo"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="Swissherb Tea logo">
+                    <p class="sh-footer-about">
+                        Pure, natural Swiss-inspired teas blended with the finest herbs, for a calm and happy moment in
+                        every cup.
+                    </p>
+                    <ul class="sh-social">
+                        <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+                        <li><a href="https://wa.me/61499568846" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                                    class="fa-brands fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick links -->
+                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+                    <h3 class="sh-footer-title">Quick Links</h3>
+                    <ul class="sh-footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#why">Why Swissherb</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our teas -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h3 class="sh-footer-title">Our Teas</h3>
+                    <ul class="sh-footer-links">
+                        <li><a href="#shop">Chamomile Tea</a></li>
+                        <li><a href="#shop">Matcha Green Tea</a></li>
+                        <li><a href="#shop">Butterfly Pea Tea</a></li>
+                        <li><a href="#shop">Strawberry Hibiscus</a></li>
+                        <li><a href="#shop">Vanilla Oolong</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h3 class="sh-footer-title">Get In Touch</h3>
+                    <ul class="sh-footer-contact">
+                        <li>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a href="https://wa.me/61499568846" target="_blank" rel="noopener">+61 499 568 846</a>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-envelope"></i>
+                            <a href="mailto:hello@swissherbtea.com">hello@swissherbtea.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Inspired by the Swiss Alps</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="sh-footer-bottom">
+                &copy; <span id="shYear">2026</span> Swissytea by Chimmy. Made with <i class="fa-solid fa-heart"></i>
+                and
+                a little Swiss magic.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('shYear').textContent = new Date().getFullYear();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.querySelectorAll('.js-order').forEach(function (a) {
+            var host = location.hostname;
+            var isLive = location.protocol.indexOf('http') === 0 && host !== 'localhost' && host !== '127.0.0.1';
+            if (isLive) {
+                var img = new URL(a.getAttribute('data-image'), location.href).href;
+                a.href += encodeURIComponent('\n' + img);
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+    <!-- Page sections go here (ids: story, shop, why, reviews, contact) -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function () {
+            var $nav = $('#mainNav');
+
+            // Sticky nav gets a background after scrolling
+            $(window).on('scroll', function () {
+                $nav.toggleClass('scrolled', $(this).scrollTop() > 40);
+            }).trigger('scroll');
+
+            // Active link on click + close mobile menu
+            $('#navMenu .nav-link').on('click', function () {
+                $('#navMenu .nav-link').removeClass('active');
+                $(this).addClass('active');
+                if ($(window).width() < 992) {
+                    bootstrap.Collapse.getOrCreateInstance('#navMenu').hide();
+                }
+            });
+
+            // Smooth scroll to sections
+            $('a[href^="#"]').on('click', function (e) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    e.preventDefault();
+                    $('html, body').animate({ scrollTop: target.offset().top - 70 }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
