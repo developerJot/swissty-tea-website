@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Swissherb Tea | A Cup of Purity, From Switzerland</title>
+
+    <!-- Bootstrap 5 + Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <!-- Fonts: Caveat Brush (headline, closest match) + Poppins (nav/body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/style.css">
+
+
+</head>
+
+<body>
+
+    <!-- ============ HEADER / NAV ============ -->
+    <nav class="navbar navbar-expand-lg sh-nav" id="mainNav">
+        <div class="container-xl">
+            <a class="navbar-brand sh-logo" href="#home" aria-label="Swissherb Tea home">
+                <!-- Replace with your logo file -->
+                <img src="./img/logo.png" alt="Swissherb Tea"
+                    onerror="this.outerHTML='<span class=&quot;sh-logo-fallback&quot;>Swissherb Tea</span>'">
+            </a>
+
+            <div class="d-flex align-items-center order-lg-3">
+                <a href="./contact.html" class="btn-sh btn-sh-primary btn-contact">
+                    <i class="fa-regular fa-envelope"></i> Contact
+                </a>
+                <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                    aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-center order-lg-2" id="navMenu">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./our-story.html">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./why-swisstea.html">Why Swissherb</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./swisstea-reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact-section" id="contact-us">
+        <div class="contact-container">
+
+            <span class="contact-float contact-float-1"><i class="fa-solid fa-heart"></i></span>
+            <span class="contact-float contact-float-2"><i class="fa-solid fa-leaf"></i></span>
+            <span class="contact-float contact-float-3"><i class="fa-solid fa-star"></i></span>
+            <span class="contact-float contact-float-4"><i class="fa-solid fa-heart"></i></span>
+
+            <div class="contact-card">
+                <span class="contact-blob contact-blob-1"></span>
+                <span class="contact-blob contact-blob-2"></span>
+
+                <div class="contact-icon-wrap">
+                    <span class="contact-ring"></span>
+                    <span class="contact-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                </div>
+
+                <p class="contact-eyebrow">Say Hello</p>
+                <h2 class="contact-title">Let's Chat Over <span>Tea</span></h2>
+                <p class="contact-text">
+                    Questions, orders or just want to say hi? Message us on WhatsApp and we will reply with a smile.
+                </p>
+
+                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20teas."
+                    class="contact-number" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>+61 499 568 846</span>
+                </a>
+
+                <div class="contact-actions">
+                    <a href="https://wa.me/61499568846?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20teas."
+                        class="contact-btn" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-paper-plane"></i> Chat on WhatsApp
+                    </a>
+                    <button class="contact-copy" type="button" id="contactCopy">
+                        <i class="fa-regular fa-copy"></i> <span>Copy number</span>
+                    </button>
+                </div>
+
+                <p class="contact-note"><i class="fa-solid fa-mug-hot"></i> We usually reply within a few hours</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <style>
+        /* ============ CONTACT (CUTE PINK) ============ */
+        .contact-section {
+            position: relative;
+            padding: 100px 0;
+            background: var(--sh-bg);
+            font-family: var(--font-body);
+            overflow: hidden;
+        }
+
+        .contact-container {
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-card {
+            position: relative;
+            z-index: 1;
+            padding: 70px 40px 44px;
+            text-align: center;
+            background: #fff;
+            border-radius: 40px;
+            border: 6px solid #fff;
+            box-shadow: 0 24px 60px rgba(238, 77, 122, 0.25);
+            overflow: hidden;
+        }
+
+        /* soft pink blobs inside the card */
+        .contact-blob {
+            position: absolute;
+            background: var(--sh-pink);
+            opacity: 0.1;
+            z-index: 0;
+            animation: contact-morph 9s ease-in-out infinite;
+        }
+
+        .contact-blob-1 {
+            width: 260px;
+            height: 260px;
+            top: -90px;
+            left: -80px;
+            border-radius: 58% 42% 63% 37% / 45% 55% 45% 55%;
+        }
+
+        .contact-blob-2 {
+            width: 220px;
+            height: 220px;
+            bottom: -80px;
+            right: -60px;
+            border-radius: 40% 60% 35% 65% / 60% 40% 60% 40%;
+            animation-direction: reverse;
+        }
+
+        @keyframes contact-morph {
+
+            0%,
+            100% {
+                border-radius: 58% 42% 63% 37% / 45% 55% 45% 55%;
+            }
+
+            50% {
+                border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+            }
+        }
+
+        .contact-card>*:not(.contact-blob) {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---------- icon ---------- */
+        .contact-icon-wrap {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 26px;
+        }
+
+        .contact-icon {
+            position: relative;
+            z-index: 1;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sh-pink), var(--sh-crimson));
+            color: #fff;
+            font-size: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 6px solid #fff;
+            box-shadow: 0 14px 30px rgba(238, 77, 122, 0.45);
+            animation: contact-bob 3s ease-in-out infinite;
+        }
+
+        .contact-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: var(--sh-pink);
+            opacity: 0.4;
+            animation: contact-pulse 2.2s ease-out infinite;
+        }
+
+        @keyframes contact-pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.45;
+            }
+
+            100% {
+                transform: scale(1.7);
+                opacity: 0;
+            }
+        }
+
+        @keyframes contact-bob {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* ---------- text ---------- */
+        .contact-eyebrow {
+            display: inline-block;
+            margin: 0 0 12px;
+            padding: 6px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sh-pink-text);
+            background: var(--sh-bg);
+            border-radius: 50px;
+        }
+
+        .contact-title {
+            margin: 0 0 14px;
+            font-family: var(--font-script);
+            font-size: clamp(36px, 6vw, 58px);
+            line-height: 1.1;
+            color: var(--sh-green);
+        }
+
+        .contact-title span {
+            color: var(--sh-pink);
+        }
+
+        .contact-text {
+            max-width: 480px;
+            margin: 0 auto 28px;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--sh-text);
+            opacity: 0.85;
+        }
+
+        /* ---------- number ---------- */
+        .contact-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 26px;
+            padding: 14px 34px;
+            font-size: clamp(22px, 4.5vw, 32px);
+            font-weight: 600;
+            color: var(--sh-crimson);
+            text-decoration: none;
+            background: var(--sh-bg);
+            border: 2px dashed var(--sh-pink);
+            border-radius: 60px;
+            transition: transform 0.25s, background 0.25s;
+        }
+
+        .contact-number i {
+            color: var(--sh-pink);
+            font-size: 1.15em;
+        }
+
+        .contact-number:hover {
+            transform: scale(1.04) rotate(-1deg);
+            background: #ffe3ec;
+            color: var(--sh-crimson);
+        }
+
+        /* ---------- buttons ---------- */
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .contact-btn,
+        .contact-copy {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 32px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, color 0.2s;
+        }
+
+        .contact-btn {
+            border: 0;
+            background: var(--sh-pink);
+            color: #fff;
+            box-shadow: 0 10px 24px rgba(238, 77, 122, 0.4);
+        }
+
+        .contact-btn:hover {
+            background: var(--sh-crimson);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .contact-copy {
+            background: #fff;
+            color: var(--sh-pink);
+            border: 2px solid var(--sh-pink);
+        }
+
+        .contact-copy:hover {
+            background: var(--sh-pink);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .contact-copy.contact-copied {
+            background: var(--sh-green);
+            border-color: var(--sh-green);
+            color: #fff;
+        }
+
+        .contact-note {
+            margin: 26px 0 0;
+            font-size: 14px;
+            color: #8a8a94;
+        }
+
+        .contact-note i {
+            color: var(--sh-pink);
+            margin-right: 6px;
+        }
+
+        /* ---------- floating icons around the card ---------- */
+        .contact-float {
+            position: absolute;
+            z-index: 2;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--sh-pink);
+            font-size: 21px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 24px rgba(238, 77, 122, 0.3);
+            animation: contact-bob 3.5s ease-in-out infinite;
+        }
+
+        .contact-float-1 {
+            top: -26px;
+            left: 6%;
+        }
+
+        .contact-float-2 {
+            top: 30%;
+            right: -14px;
+            color: var(--sh-green);
+            animation-delay: 0.7s;
+        }
+
+        .contact-float-3 {
+            bottom: 12%;
+            left: -14px;
+            color: #ffb400;
+            animation-delay: 1.4s;
+        }
+
+        .contact-float-4 {
+            bottom: -26px;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        /* ---------- tablet / phone ---------- */
+        @media (max-width: 767.98px) {
+            .contact-section {
+                padding: 70px 0;
+            }
+
+            .contact-card {
+                padding: 56px 24px 36px;
+                border-radius: 32px;
+            }
+
+            .contact-float {
+                width: 42px;
+                height: 42px;
+                font-size: 17px;
+            }
+
+            .contact-float-2 {
+                right: 0;
+            }
+
+            .contact-float-3 {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .contact-section {
+                padding: 55px 0;
+            }
+
+            .contact-icon-wrap,
+            .contact-icon {
+                width: 90px;
+                height: 90px;
+            }
+
+            .contact-icon {
+                font-size: 44px;
+            }
+
+            .contact-text {
+                font-size: 15.5px;
+            }
+
+            .contact-number {
+                padding: 12px 22px;
+                gap: 10px;
+            }
+
+            .contact-actions {
+                flex-direction: column;
+            }
+
+            .contact-btn,
+            .contact-copy {
+                width: 100%;
+            }
+        }
+    </style>
+
+
+
+    <script>
+        (function () {
+            var btn = document.getElementById('contactCopy');
+            if (!btn) return;
+
+            var label = btn.querySelector('span');
+            var icon = btn.querySelector('i');
+            var number = '+61499568846';
+
+            function done() {
+                btn.classList.add('contact-copied');
+                icon.className = 'fa-solid fa-check';
+                label.textContent = 'Copied!';
+                setTimeout(function () {
+                    btn.classList.remove('contact-copied');
+                    icon.className = 'fa-regular fa-copy';
+                    label.textContent = 'Copy number';
+                }, 2000);
+            }
+
+            btn.addEventListener('click', function () {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(number).then(done);
+                } else {
+                    var t = document.createElement('textarea');
+                    t.value = number;
+                    document.body.appendChild(t);
+                    t.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(t);
+                    done();
+                }
+            });
+        })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ============ BANNER WALLPAPER ============ -->
+    <section class="sh-banner" id="banner">
+        <div class="sh-banner-art" aria-hidden="true">
+            <img src="./img/banner.jpeg" alt="" loading="lazy">
+        </div>
+
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="sh-banner-copy">
+                        <p class="sh-eyebrow sh-story-eyebrow">With Love From Switzerland</p>
+                        <h2 class="sh-banner-title">
+                            All the Love &amp; Soul in Every Cup <i class="fa-solid fa-heart"></i>
+                        </h2>
+                        <p class="sh-banner-text">
+                            Fresh herbs, golden honey and a little Swiss magic, steeped into every stick.
+                            Pick your favourite blend and let us bring a calm, happy moment to your day.
+                        </p>
+                        <a href="https://wa.me/61499568846?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20teas."
+                            class="btn-sh btn-sh-primary" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i> Chat With Us
+                        </a>
+                        <ul class="sh-banner-tags">
+                            <li>Pure</li>
+                            <li>Natural</li>
+                            <li>Swiss Inspired</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- real text for accessibility / SEO since the image is decorative -->
+        <span class="visually-hidden">Swissytea by Chimmy - with all the love and soul from Switzerland</span>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="sh-footer" id="contact">
+        <div class="container-xl">
+            <div class="row g-4 g-lg-5">
+
+                <!-- Brand -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Empty logo placeholder: replace the src with your logo -->
+                    <img class="sh-footer-logo"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="Swissherb Tea logo">
+                    <p class="sh-footer-about">
+                        Pure, natural Swiss-inspired teas blended with the finest herbs, for a calm and happy moment in
+                        every cup.
+                    </p>
+                    <ul class="sh-social">
+                        <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+                        <li><a href="https://wa.me/61499568846" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                                    class="fa-brands fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick links -->
+                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+                    <h3 class="sh-footer-title">Quick Links</h3>
+                    <ul class="sh-footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#why">Why Swissherb</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our teas -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h3 class="sh-footer-title">Our Teas</h3>
+                    <ul class="sh-footer-links">
+                        <li><a href="#shop">Chamomile Tea</a></li>
+                        <li><a href="#shop">Matcha Green Tea</a></li>
+                        <li><a href="#shop">Butterfly Pea Tea</a></li>
+                        <li><a href="#shop">Strawberry Hibiscus</a></li>
+                        <li><a href="#shop">Vanilla Oolong</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h3 class="sh-footer-title">Get In Touch</h3>
+                    <ul class="sh-footer-contact">
+                        <li>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a href="https://wa.me/61499568846" target="_blank" rel="noopener">+61 499 568 846</a>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-envelope"></i>
+                            <a href="mailto:hello@swissherbtea.com">hello@swissherbtea.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Inspired by the Swiss Alps</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="sh-footer-bottom">
+                &copy; <span id="shYear">2026</span> Swissytea by Chimmy. Made with <i class="fa-solid fa-heart"></i>
+                and
+                a little Swiss magic.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('shYear').textContent = new Date().getFullYear();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.querySelectorAll('.js-order').forEach(function (a) {
+            var host = location.hostname;
+            var isLive = location.protocol.indexOf('http') === 0 && host !== 'localhost' && host !== '127.0.0.1';
+            if (isLive) {
+                var img = new URL(a.getAttribute('data-image'), location.href).href;
+                a.href += encodeURIComponent('\n' + img);
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+    <!-- Page sections go here (ids: story, shop, why, reviews, contact) -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function () {
+            var $nav = $('#mainNav');
+
+            // Sticky nav gets a background after scrolling
+            $(window).on('scroll', function () {
+                $nav.toggleClass('scrolled', $(this).scrollTop() > 40);
+            }).trigger('scroll');
+
+            // Active link on click + close mobile menu
+            $('#navMenu .nav-link').on('click', function () {
+                $('#navMenu .nav-link').removeClass('active');
+                $(this).addClass('active');
+                if ($(window).width() < 992) {
+                    bootstrap.Collapse.getOrCreateInstance('#navMenu').hide();
+                }
+            });
+
+            // Smooth scroll to sections
+            $('a[href^="#"]').on('click', function (e) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    e.preventDefault();
+                    $('html, body').animate({ scrollTop: target.offset().top - 70 }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
