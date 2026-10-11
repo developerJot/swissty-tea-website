@@ -47,7 +47,7 @@
                     <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="./our-story.html">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link" href="./shop.html">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./why-swisstea.html">Why Swissherb</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./why-swisstea.html">Why SwissTea</a></li>
                     <li class="nav-item"><a class="nav-link" href="./swisstea-reviews.html">Reviews</a></li>
                 </ul>
             </div>
@@ -173,6 +173,415 @@
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ============ VIDEO ARCH SHOWCASE (style + section + script) ============ -->
+    <style>
+        .sh-watch {
+            position: relative;
+            padding: 100px 0;
+            background: var(--sh-bg);
+            font-family: var(--font-body);
+            color: var(--sh-text);
+            overflow: hidden;
+        }
+
+        /* big faded word behind the video */
+        .sh-watch-bgword {
+            position: absolute;
+            top: 50%;
+            left: -2%;
+            transform: translateY(-50%);
+            font-family: var(--font-script);
+            font-size: clamp(8rem, 22vw, 20rem);
+            line-height: .8;
+            color: var(--sh-pink);
+            opacity: .08;
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        /* ---------- Arch video ---------- */
+        .sh-watch-media {
+            position: relative;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        .sh-watch-arch {
+            position: relative;
+            z-index: 1;
+            aspect-ratio: 3 / 4.2;
+            border-radius: 999px 999px 28px 28px;
+            overflow: hidden;
+            background: var(--sh-text);
+            box-shadow: 0 30px 60px -25px rgba(0, 0, 0, .45);
+            cursor: pointer;
+        }
+
+        /* offset outline arch behind */
+        .sh-watch-media::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: translate(18px, 18px);
+            border: 3px solid var(--sh-pink);
+            border-radius: 999px 999px 28px 28px;
+            z-index: 0;
+        }
+
+        .sh-watch-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .8s ease;
+        }
+
+        .sh-watch-arch:hover .sh-watch-video {
+            transform: scale(1.04);
+        }
+
+        /* bottom gradient + controls */
+        .sh-watch-arch::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 30%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, .45));
+            pointer-events: none;
+        }
+
+        .sh-watch-ctrl {
+            position: absolute;
+            z-index: 3;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .sh-watch-ctrl button {
+            width: 44px;
+            height: 44px;
+            border: 0;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--sh-pink);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .3);
+            cursor: pointer;
+            transition: transform .2s, background .2s, color .2s;
+        }
+
+        .sh-watch-ctrl button:hover {
+            background: var(--sh-pink);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* rotating text badge */
+        .sh-watch-badge {
+            position: absolute;
+            z-index: 4;
+            top: 8%;
+            right: -14%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--sh-pink);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 12px 26px -8px rgba(0, 0, 0, .35);
+        }
+
+        .sh-watch-badge svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            animation: shSpin 14s linear infinite;
+        }
+
+        .sh-watch-badge text {
+            font: 600 11.5px var(--font-body);
+            letter-spacing: 2.6px;
+            fill: #fff;
+            text-transform: uppercase;
+        }
+
+        .sh-watch-badge i {
+            font-size: 1.5rem;
+        }
+
+        @keyframes shSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ---------- Text ---------- */
+        .sh-watch-title {
+            font-family: var(--font-script);
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            line-height: 1.05;
+            color: var(--sh-crimson);
+            margin-bottom: 18px;
+        }
+
+        .sh-watch-title span {
+            color: var(--sh-pink);
+        }
+
+        .sh-watch-lead {
+            font-size: 1.05rem;
+            max-width: 470px;
+            margin-bottom: 34px;
+        }
+
+        .sh-watch-steps {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 36px;
+            max-width: 480px;
+            border-top: 1px solid rgba(31, 77, 58, .2);
+        }
+
+        .sh-watch-steps li {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(31, 77, 58, .2);
+            transition: padding-left .3s;
+        }
+
+        .sh-watch-steps li:hover {
+            padding-left: 10px;
+        }
+
+        .sh-watch-num {
+            font-family: var(--font-script);
+            font-size: 2.6rem;
+            line-height: 1;
+            color: var(--sh-pink);
+            min-width: 56px;
+        }
+
+        .sh-watch-steps h3 {
+            font: 600 1.1rem var(--font-body);
+            color: var(--sh-green);
+            margin: 0 0 2px;
+        }
+
+        .sh-watch-steps p {
+            margin: 0;
+            font-size: .92rem;
+            opacity: .8;
+        }
+
+        @media (max-width: 991.98px) {
+            .sh-watch {
+                padding: 64px 0;
+                text-align: center;
+            }
+
+            .sh-watch-media {
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+
+            .sh-watch-media::before {
+                transform: translate(12px, 12px);
+            }
+
+            .sh-watch-badge {
+                width: 96px;
+                height: 96px;
+                right: -10%;
+            }
+
+            .sh-watch-badge text {
+                font-size: 10px;
+            }
+
+            .sh-watch-lead,
+            .sh-watch-steps {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: left;
+            }
+
+            .sh-watch .d-flex {
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <section class="sh-watch" id="watch">
+        <span class="sh-watch-bgword" aria-hidden="true">Sip</span>
+
+        <div class="container-xl position-relative">
+            <div class="row align-items-center g-5">
+
+                <!-- Arch video -->
+                <div class="col-lg-5">
+                    <div class="sh-watch-media">
+                        <div class="sh-watch-arch" id="shWatchArch">
+                            <video id="shWatchVideo" class="sh-watch-video" src="./video/product-video.mp4"
+                                poster="./img/video-poster.jpg" muted loop playsinline preload="metadata"></video>
+
+                            <div class="sh-watch-ctrl">
+                                <button type="button" id="shWatchPlay" aria-label="Play or pause">
+                                    <i class="fa-solid fa-pause"></i>
+                                </button>
+                                <button type="button" id="shWatchSound" aria-label="Sound on or off">
+                                    <i class="fa-solid fa-volume-xmark"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sh-watch-badge" aria-hidden="true">
+                            <svg viewBox="0 0 120 120">
+                                <defs>
+                                    <path id="shCirclePath" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0" />
+                                </defs>
+                                <text>
+                                    <textPath href="#shCirclePath">Dip • Stir • Sip • Dip • Stir • Sip •</textPath>
+                                </text>
+                            </svg>
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="col-lg-6 offset-lg-1">
+                    <p class="sh-eyebrow">See It In Action</p>
+                    <h2 class="sh-watch-title">A Little Stick,<br><span>A Whole Lot of Calm</span></h2>
+                    <p class="sh-watch-lead">
+                        Our mesh tea bag comes with its own ice cream stick. Watch the herbs, ginger and lemon
+                        bloom into a golden cup in just a few moments.
+                    </p>
+
+                    <ul class="sh-watch-steps">
+                        <li>
+                            <span class="sh-watch-num">01</span>
+                            <div>
+                                <h3>Dip</h3>
+                                <p>Place the stick into a cup of hot water.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="sh-watch-num">02</span>
+                            <div>
+                                <h3>Stir</h3>
+                                <p>Swirl gently as the herbs open up.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="sh-watch-num">03</span>
+                            <div>
+                                <h3>Sip</h3>
+                                <p>Enjoy a warm, honey-sweet, happy cup.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#shop" class="btn-sh btn-sh-primary">
+                            <i class="fa-solid fa-cart-shopping"></i> Shop Our Teas
+                        </a>
+                        <a href="https://wa.me/61499568846?text=Hi%2C%20I%27d%20like%20to%20order%20Ginger%20Honey%20Lemon%20Tea."
+                            class="btn-sh btn-sh-outline" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            var v = document.getElementById('shWatchVideo');
+            var arch = document.getElementById('shWatchArch');
+            var playBtn = document.getElementById('shWatchPlay');
+            var soundBtn = document.getElementById('shWatchSound');
+            if (!v) return;
+
+            var userPaused = false;
+
+            function sync() {
+                playBtn.innerHTML = v.paused
+                    ? '<i class="fa-solid fa-play"></i>'
+                    : '<i class="fa-solid fa-pause"></i>';
+                soundBtn.innerHTML = v.muted
+                    ? '<i class="fa-solid fa-volume-xmark"></i>'
+                    : '<i class="fa-solid fa-volume-high"></i>';
+            }
+
+            // Autoplay (muted) when in view, pause when out of view
+            new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting && !userPaused) {
+                        v.play().catch(function () { });
+                    } else {
+                        v.pause();
+                    }
+                    sync();
+                });
+            }, { threshold: 0.5 }).observe(arch);
+
+            function togglePlay() {
+                userPaused = !v.paused;
+                v.paused ? v.play() : v.pause();
+                sync();
+            }
+
+            playBtn.addEventListener('click', function (e) { e.stopPropagation(); togglePlay(); });
+            soundBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                v.muted = !v.muted;
+                sync();
+            });
+            arch.addEventListener('click', togglePlay);
+        })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
