@@ -195,7 +195,7 @@
 
 
 
-    <!-- ============ VIDEO ARCH SHOWCASE (style + section + script) ============ -->
+    <!-- ============ VIDEO SQUARE SHOWCASE (style + section + script) ============ -->
     <style>
         .sh-watch {
             position: relative;
@@ -222,40 +222,38 @@
             white-space: nowrap;
         }
 
-        /* ---------- Arch video ---------- */
+        /* ---------- Square video ---------- */
         .sh-watch-media {
             position: relative;
-            max-width: 380px;
+            max-width: 420px;
             margin: 0 auto;
         }
 
         .sh-watch-arch {
             position: relative;
             z-index: 1;
-            aspect-ratio: 3 / 4.2;
-            border-radius: 999px 999px 28px 28px;
+            aspect-ratio: 1 / 1;
+            /* square */
+            border: none;
+            /* no border */
+            outline: none;
+            border-radius: 28px;
+            /* set to 0 for sharp corners */
             overflow: hidden;
             background: var(--sh-text);
             box-shadow: 0 30px 60px -25px rgba(0, 0, 0, .45);
             cursor: pointer;
         }
 
-        /* offset outline arch behind */
-        .sh-watch-media::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            transform: translate(18px, 18px);
-            border: 3px solid var(--sh-pink);
-            border-radius: 999px 999px 28px 28px;
-            z-index: 0;
-        }
-
         .sh-watch-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            /* crops vertical video to fit square */
+            object-position: center;
             display: block;
+            border: none;
+            outline: none;
             transition: transform .8s ease;
         }
 
@@ -305,8 +303,8 @@
         .sh-watch-badge {
             position: absolute;
             z-index: 4;
-            top: 8%;
-            right: -14%;
+            top: -4%;
+            right: -8%;
             width: 120px;
             height: 120px;
             border-radius: 50%;
@@ -409,18 +407,15 @@
             }
 
             .sh-watch-media {
-                max-width: 300px;
+                max-width: 320px;
                 margin-bottom: 20px;
-            }
-
-            .sh-watch-media::before {
-                transform: translate(12px, 12px);
             }
 
             .sh-watch-badge {
                 width: 96px;
                 height: 96px;
-                right: -10%;
+                top: -6%;
+                right: -6%;
             }
 
             .sh-watch-badge text {
@@ -446,7 +441,7 @@
         <div class="container-xl position-relative">
             <div class="row align-items-center g-5">
 
-                <!-- Arch video -->
+                <!-- Square video -->
                 <div class="col-lg-5">
                     <div class="sh-watch-media">
                         <div class="sh-watch-arch" id="shWatchArch">
@@ -571,7 +566,6 @@
             arch.addEventListener('click', togglePlay);
         })();
     </script>
-
 
 
 
@@ -1011,7 +1005,7 @@
                         </li>
                         <li>
                             <i class="fa-regular fa-envelope"></i>
-                            <a href="mailto:hello@swissherbtea.com">hello@swissherbtea.com</a>
+                            <a href="mailto:swissty@swisstytea.com">swissty@swisstytea.com</a>
                         </li>
                         <li>
                             <i class="fa-solid fa-location-dot"></i>
