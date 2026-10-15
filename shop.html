@@ -76,7 +76,239 @@
 
 
 
+    <style>
+        .shop-page-video-code-section {
+            background: linear-gradient(180deg, var(--sh-bg) 0%, #fff5f1 100%);
+            padding: 140px 0 80px;
+        }
 
+        .shop-page-video-code-head {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 2.4rem;
+        }
+
+        .shop-page-video-code-eyebrow {
+            font-family: var(--font-script);
+            color: var(--sh-crimson);
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            font-size: .8rem;
+            margin: 0 0 .4rem;
+        }
+
+        .shop-page-video-code-title {
+            font-family: var(--font-script);
+            color: #c4325f;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+            margin: 0 0 .9rem;
+        }
+
+        .shop-page-video-code-title .fa-heart {
+            font-size: .5em;
+            color: var(--sh-pink);
+            margin-left: .3rem;
+            vertical-align: middle;
+        }
+
+        .shop-page-video-code-text {
+            font-size: .98rem;
+            line-height: 1.7;
+            color: var(--sh-text);
+            margin: 0;
+        }
+
+        .shop-page-video-code-wrap {
+            position: relative;
+            max-width: 960px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 26px;
+            border: 6px solid #fff;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 14px 34px rgba(184, 50, 90, .18);
+        }
+
+        .shop-page-video-code-player {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .shop-page-video-code-sound {
+            position: absolute;
+            right: 14px;
+            bottom: 14px;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--sh-pink);
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 16px rgba(238, 77, 122, .4);
+            transition: transform .2s, background .2s;
+        }
+
+        .shop-page-video-code-sound:hover {
+            background: #d93a69;
+            transform: scale(1.08);
+        }
+
+        .shop-page-video-code-sound:focus-visible,
+        .shop-page-video-code-btn:focus-visible {
+            outline: 3px solid var(--sh-green);
+            outline-offset: 3px;
+        }
+
+        .shop-page-video-code-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .shop-page-video-code-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: .95rem;
+            color: #fff;
+            text-decoration: none;
+            background: var(--sh-pink);
+            border: 2px solid var(--sh-pink);
+            border-radius: 50px;
+            padding: .85rem 1.7rem;
+            box-shadow: 0 8px 20px rgba(238, 77, 122, .35);
+            transition: transform .2s, background .2s;
+        }
+
+        .shop-page-video-code-btn:hover {
+            background: #d93a69;
+            border-color: #d93a69;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .shop-page-video-code-reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .shop-page-video-code-reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .shop-page-video-code-reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .shop-page-video-code-section {
+                padding: 110px 0 55px;
+            }
+
+            .shop-page-video-code-wrap {
+                border-radius: 16px;
+                border-width: 4px;
+            }
+
+            .shop-page-video-code-sound {
+                width: 38px;
+                height: 38px;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    </style>
+
+    <section class="shop-page-video-code-section" id="shop-page-video-code">
+        <div class="container-xl">
+
+            <div class="shop-page-video-code-head shop-page-video-code-reveal">
+                <p class="shop-page-video-code-eyebrow">Swisstytea by Chimmy</p>
+                <h2 class="shop-page-video-code-title">See All Our Teas <i class="fa-solid fa-heart"></i></h2>
+                <p class="shop-page-video-code-text">
+                    A quick look at every blend in our collection, from sweet black honey to calming chamomile.
+                </p>
+            </div>
+
+            <div class="shop-page-video-code-wrap shop-page-video-code-reveal">
+                <video class="shop-page-video-code-player" id="shopPageVideoCodePlayer"
+                    src="./video/swissty-all-products-video.mp4" muted loop playsinline preload="metadata" autoplay>
+                    Your browser does not support the video tag.
+                </video>
+
+                <button type="button" class="shop-page-video-code-sound" id="shopPageVideoCodeSound"
+                    aria-label="Unmute video">
+                    <i class="fa-solid fa-volume-xmark"></i>
+                </button>
+            </div>
+
+            <div class="shop-page-video-code-cta shop-page-video-code-reveal">
+                <a class="shop-page-video-code-btn"
+                    href="https://wa.me/61499568846?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20teas."
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i> Order On WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            var video = document.getElementById('shopPageVideoCodePlayer');
+            var soundBtn = document.getElementById('shopPageVideoCodeSound');
+            var items = document.querySelectorAll('.shop-page-video-code-reveal');
+            if (!video || !soundBtn) return;
+
+            soundBtn.addEventListener('click', function () {
+                video.muted = !video.muted;
+                soundBtn.innerHTML = video.muted
+                    ? '<i class="fa-solid fa-volume-xmark"></i>'
+                    : '<i class="fa-solid fa-volume-high"></i>';
+                soundBtn.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
+            });
+
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            video.play().catch(function () { });
+                        } else {
+                            video.pause();
+                        }
+                    });
+                }, { threshold: 0.35 }).observe(video);
+
+                var revealObs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            revealObs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                items.forEach(function (el) { revealObs.observe(el); });
+            } else {
+                items.forEach(function (el) { el.classList.add('is-visible'); });
+            }
+        })();
+    </script>
 
 
 
@@ -231,21 +463,24 @@
                     <article class="sh-product is-purple">
                         <div class="sh-product-img">
                             <img src="./img/product/black-breakfast-tea-botanical-transparent.png"
-                                alt="Chamomile Sleeping Tea tin with matching botanical artwork" loading="lazy"
+                                alt="Breakfast Black Tea tin with rich black tea botanical artwork" loading="lazy"
                                 width="1024" height="1024">
                         </div>
                         <div class="sh-product-body">
-                            <h3 class="sh-product-name">Chamomile Sleeping Tea</h3>
-                            <p class="sh-product-desc">Soft chamomile floral notes for a gentle cup at the end of your
-                                day.
+                            <h3 class="sh-product-name">Breakfast Black Tea</h3>
+                            <p class="sh-product-desc">
+                                A rich, bold, and full-bodied black tea with a smooth, refreshing taste.
+                                Perfect for a strong and energizing start to your morning.
                             </p>
                             <div class="sh-product-actions">
                                 <a href="./black-breakfast-tea.html" class="btn-sh btn-view">
-                                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product</a>
-                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Chamomile%20Sleeping%20Tea.%20How%20much%20for%20this%3F"
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product
+                                </a>
+                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Breakfast%20Black%20Tea.%20How%20much%20for%20this%3F"
                                     class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
-                                    data-image="./img/product/chamomile_sleeping_tea_botanical.png">
-                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now</a>
+                                    data-image="./img/product/black-breakfast-tea-botanical-transparent.png">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now
+                                </a>
                             </div>
                         </div>
                     </article>
@@ -255,6 +490,7 @@
             </div>
         </div>
     </section>
+
 
 
 
