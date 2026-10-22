@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Swissherb Tea | A Cup of Purity, From SwissTea</title>
+
+    <!-- Bootstrap 5 + Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <!-- Fonts: Caveat Brush (headline, closest match) + Poppins (nav/body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/style.css">
+
+
+</head>
+
+<body>
+
+    <!-- ============ HEADER / NAV ============ -->
+    <nav class="navbar navbar-expand-lg sh-nav" id="mainNav">
+        <div class="container-xl">
+            <a class="navbar-brand sh-logo" href="#home" aria-label="Swissherb Tea home">
+                <!-- Replace with your logo file -->
+                <img src="./img/logo.png" alt="Swissherb Tea"
+                    onerror="this.outerHTML='<span class=&quot;sh-logo-fallback&quot;>Swissherb Tea</span>'">
+            </a>
+
+            <div class="d-flex align-items-center order-lg-3">
+                <a href="./contact.html" class="btn-sh btn-sh-primary btn-contact">
+                    <i class="fa-regular fa-envelope"></i> Contact
+                </a>
+                <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                    aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-center order-lg-2" id="navMenu">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./our-story.html">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./why-swisstea.html">Why SwissTea</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./swisstea-reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <style>
+        /* =========================================================
+   PRODUCT PAGE (shared by all product pages)
+   All classes start with "product-"
+   ========================================================= */
+
+        /* ---------- Themes (change colours per product) ---------- */
+        .product-page {
+            --product-accent: #f0457a;
+            --product-accent-2: #ff6b8f;
+            --product-soft: #ffe3ea;
+            --product-blob: #ffd9de;
+            --product-bg: #fff3f0;
+            --product-text: #4a3a40;
+            --product-title: #f0457a;
+        }
+
+        .product-page.product-theme-peach {
+            --product-accent: #f0457a;
+            --product-accent-2: #ff6b8f;
+            --product-soft: #ffe3ea;
+            --product-blob: #ffd9de;
+            --product-bg: #fff3f0;
+            --product-title: #f0457a;
+        }
+
+        .product-page.product-theme-green {
+            --product-accent: #6f8f2a;
+            --product-accent-2: #98b84a;
+            --product-soft: #eef2cf;
+            --product-blob: #e3ecb8;
+            --product-bg: #f8faee;
+            --product-title: #4f6a17;
+        }
+
+        .product-page.product-theme-purple {
+            --product-accent: #8a4fc4;
+            --product-accent-2: #a56fcf;
+            --product-soft: #efe3f8;
+            --product-blob: #e4d2f3;
+            --product-bg: #f8f2fc;
+            --product-title: #6a38a0;
+        }
+
+        .product-page.product-theme-rose {
+            --product-accent: #e0405a;
+            --product-accent-2: #ee6f7a;
+            --product-soft: #fde0e0;
+            --product-blob: #fbd0d3;
+            --product-bg: #fff2f2;
+            --product-title: #c42f4c;
+        }
+
+        .product-page.product-theme-blue {
+            --product-accent: #4f7fb5;
+            --product-accent-2: #6f98c4;
+            --product-soft: #dfeaf5;
+            --product-blob: #cfdff0;
+            --product-bg: #f1f6fb;
+            --product-title: #36608f;
+        }
+
+        /* ---------- Section wrapper ---------- */
+        .product-page {
+            background: var(--product-bg);
+            padding: 110px 0 70px;
+            /* top space for the fixed navbar */
+            color: var(--product-text);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        /* ---------- Breadcrumb ---------- */
+        .product-breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: .55rem;
+            list-style: none;
+            margin: 0 0 2.2rem;
+            padding: 0;
+            font-size: .88rem;
+        }
+
+        .product-breadcrumb a {
+            color: var(--product-text);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .product-breadcrumb a:hover {
+            color: var(--product-accent);
+        }
+
+        .product-breadcrumb .fa-house {
+            color: var(--product-accent);
+            font-size: 1.05rem;
+        }
+
+        .product-breadcrumb .product-crumb-sep {
+            font-size: .65rem;
+            color: #b9a9ad;
+        }
+
+        .product-breadcrumb .product-crumb-current {
+            color: var(--product-text);
+            font-weight: 500;
+        }
+
+        /* ---------- Two-column layout ---------- */
+        .product-wrap {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* ---------- Left: visual ---------- */
+        .product-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 460px;
+        }
+
+        /* soft cloud shape behind the product */
+        .product-blob {
+            position: absolute;
+            inset: 4% 4% 4% 4%;
+            background: var(--product-blob);
+            opacity: .6;
+            border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+            z-index: 0;
+        }
+
+        .product-img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 22px 28px rgba(120, 60, 80, .18));
+        }
+
+        /* floating decorations */
+        .product-deco {
+            position: absolute;
+            z-index: 2;
+            color: var(--product-accent-2);
+            pointer-events: none;
+        }
+
+        .product-deco-butterfly {
+            top: 2%;
+            left: 4%;
+            font-size: 2.6rem;
+            animation: product-float 5s ease-in-out infinite;
+        }
+
+        .product-deco-heart-1 {
+            top: 38%;
+            left: 8%;
+            font-size: 1.5rem;
+            opacity: .8;
+        }
+
+        .product-deco-heart-2 {
+            top: 24%;
+            right: 12%;
+            font-size: 1.4rem;
+            opacity: .8;
+            animation: product-float 4s ease-in-out infinite;
+        }
+
+        .product-deco-heart-3 {
+            top: 46%;
+            right: 4%;
+            font-size: 1.8rem;
+            opacity: .7;
+        }
+
+        @keyframes product-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ---------- Right: info ---------- */
+        .product-info {
+            position: relative;
+            padding-right: 1rem;
+        }
+
+        .product-info-heart {
+            position: absolute;
+            top: -6px;
+            right: 0;
+            font-size: 1.8rem;
+            color: var(--product-accent-2);
+        }
+
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            background: var(--product-soft);
+            color: var(--product-accent);
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .45rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .product-title {
+            font-family: var(--font-script, 'Caveat Brush', cursive);
+            color: var(--product-title);
+            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+            line-height: 1.05;
+            margin: 0 0 .7rem;
+        }
+
+        .product-tagline {
+            color: var(--product-accent);
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin: 0 0 1.2rem;
+        }
+
+        .product-desc {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: var(--product-text);
+            max-width: 520px;
+            margin: 0 0 1.8rem;
+        }
+
+        /* ---------- Order button ---------- */
+        .product-order {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .7rem;
+            width: 100%;
+            max-width: 520px;
+            padding: 1rem 1.5rem;
+            border: 0;
+            border-radius: 60px;
+            background: linear-gradient(90deg, var(--product-accent), var(--product-accent-2));
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 500;
+            text-decoration: none;
+            box-shadow: 0 12px 24px rgba(240, 69, 122, .28);
+            transition: transform .2s, box-shadow .2s, filter .2s;
+        }
+
+        .product-order i {
+            font-size: 1.4rem;
+        }
+
+        .product-order:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            filter: brightness(.96);
+            box-shadow: 0 16px 30px rgba(240, 69, 122, .35);
+        }
+
+        .product-order:focus-visible {
+            outline: 3px solid var(--product-accent);
+            outline-offset: 3px;
+        }
+
+        /* ---------- Feature icons ---------- */
+        .product-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            list-style: none;
+            margin: 2.2rem 0 0;
+            padding: 0;
+            max-width: 520px;
+        }
+
+        .product-feature {
+            text-align: center;
+            font-size: .8rem;
+            line-height: 1.35;
+            color: var(--product-text);
+        }
+
+        .product-feature i {
+            display: block;
+            font-size: 1.9rem;
+            color: var(--product-accent);
+            margin-bottom: .55rem;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 991.98px) {
+            .product-page {
+                padding: 95px 0 60px;
+            }
+
+            .product-wrap {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-visual {
+                min-height: 380px;
+            }
+
+            .product-img {
+                max-width: 380px;
+            }
+
+            .product-info {
+                text-align: center;
+                padding-right: 0;
+            }
+
+            .product-info-heart {
+                display: none;
+            }
+
+            .product-desc,
+            .product-order,
+            .product-features {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .product-features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.4rem 1rem;
+            }
+
+            .product-deco-butterfly {
+                font-size: 2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .product-deco-butterfly,
+            .product-deco-heart-2 {
+                animation: none;
+            }
+
+            .product-order:hover {
+                transform: none;
+            }
+        }
+    </style>
+
+    <section class="product-page product-theme-peach">
+        <div class="container-xl">
+
+            <!-- Breadcrumb -->
+            <ul class="product-breadcrumb">
+                <li><a href="index.html"><i class="fa-regular fa-house"></i> Home</a></li>
+                <li><i class="fa-solid fa-chevron-right product-crumb-sep"></i></li>
+                <li><a href="index.html#shop">Shop</a></li>
+                <li><i class="fa-solid fa-chevron-right product-crumb-sep"></i></li>
+                <li class="product-crumb-current">Ginger Lemongrass Tea</li>
+            </ul>
+
+            <div class="product-wrap">
+
+                <!-- LEFT: image -->
+                <div class="product-visual">
+                    <span class="product-blob" aria-hidden="true"></span>
+                    <span class="product-deco product-deco-butterfly" aria-hidden="true">🦋</span>
+                    <i class="fa-regular fa-heart product-deco product-deco-heart-1" aria-hidden="true"></i>
+                    <i class="fa-regular fa-heart product-deco product-deco-heart-2" aria-hidden="true"></i>
+                    <i class="fa-regular fa-heart product-deco product-deco-heart-3" aria-hidden="true"></i>
+                    <img class="product-img" src="./img/product/ginger-lemongrass-tea.png"
+                        alt="Ginger Lemongrass Tea with ginger and fresh lemongrass">
+                </div>
+
+                <!-- RIGHT: details -->
+                <div class="product-info">
+                    <i class="fa-regular fa-heart product-info-heart" aria-hidden="true"></i>
+
+                    <span class="product-badge"><i class="fa-solid fa-award"></i> Bestseller</span>
+                    <h1 class="product-title">Ginger Lemongrass Tea</h1>
+                    <p class="product-tagline">Refreshing Taste · Warming Ginger · Natural Goodness</p>
+                    <p class="product-desc">
+                        A refreshing and aromatic herbal tea combining the warm, spicy flavour of ginger
+                        with the fresh, citrusy notes of lemongrass. This delightful blend offers a
+                        soothing and comforting tea experience, traditionally enjoyed after meals
+                        and during relaxing moments. Perfect for refreshing your senses, supporting
+                        digestive comfort, and bringing natural warmth and freshness to your daily routine.
+                    </p>
+
+                    <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20%2AGinger%20Lemongrass%20Tea%2A.%20How%20much%20for%20this%3F"
+                        class="product-order js-order" target="_blank" rel="noopener"
+                        data-image="./img/product/ginger-lemongrass-tea.png">
+                        <i class="fa-brands fa-whatsapp"></i> Order Now
+                    </a>
+
+                    <ul class="product-features">
+                        <li class="product-feature"><i class="fa-solid fa-leaf"></i>Ginger &<br>Lemongrass</li>
+                        <li class="product-feature"><i class="fa-regular fa-heart"></i>Supports<br>Digestion</li>
+                        <li class="product-feature"><i class="fa-regular fa-moon"></i>Refreshing &<br>Soothing</li>
+                        <li class="product-feature"><i class="fa-solid fa-seedling"></i>Warm &<br>Citrusy Flavour</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="sh-products" id="shop">
+        <div class="container-xl">
+            <div class="sh-section-head">
+                <p class="sh-eyebrow">Swisstytea by Chimmy</p>
+                <h2 class="sh-section-title">
+                    <i class="fa-regular fa-heart h-left" aria-hidden="true"></i>
+                    More Than Just Tea
+                    <i class="fa-solid fa-heart h-right" aria-hidden="true"></i>
+                </h2>
+            </div>
+            <div class="sh-products-row">
+                <!-- <div class="sh-col">
+                                <article class="sh-product is-rose">
+                                    <div class="sh-product-img">
+                                        <img src="./img/product/sweet_black_honey_tea_botanical_v2.png"
+                                            alt="Sweet Black Honey Tea tin with matching botanical artwork" loading="lazy"
+                                            width="1024" height="1024">
+                                    </div>
+                                    <div class="sh-product-body">
+                                        <h3 class="sh-product-name">Sweet Black Honey Tea</h3>
+                                        <p class="sh-product-desc">Bold black tea with mellow honey notes and a smooth, sweet
+                                            finish.
+                                        </p>
+                                        <div class="sh-product-actions">
+                                            <a href="./sweet-black-honey-tea.html" class="btn-sh btn-view">
+                                                <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product</a>
+                                            <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Sweet%20Black%20Honey%20Tea.%20How%20much%20for%20this%3F"
+                                                class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
+                                                data-image="./img/product/sweet_black_honey_tea_botanical_v2.png">
+                                                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div> -->
+
+                <div class="sh-col">
+                    <article class="sh-product is-yellow">
+                        <div class="sh-product-img">
+                            <img src="./img/product/ginger_honey_lemon_tea_botanical.png"
+                                alt="Ginger Honey Lemon Tea tin with matching botanical artwork" loading="lazy"
+                                width="1024" height="1024">
+                        </div>
+                        <div class="sh-product-body">
+                            <h3 class="sh-product-name">Ginger Honey Lemon Tea</h3>
+                            <p class="sh-product-desc">Warming ginger, bright lemon and gentle honey sweetness in every
+                                sip.
+                            </p>
+                            <div class="sh-product-actions">
+                                <a href="./ginger-honey-lemon-tea.html" class="btn-sh btn-view">
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product</a>
+                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Ginger%20Honey%20Lemon%20Tea.%20How%20much%20for%20this%3F"
+                                    class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
+                                    data-image="./img/product/ginger_honey_lemon_tea_botanical.png">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="sh-col">
+                    <article class="sh-product is-peach">
+                        <div class="sh-product-img">
+                            <img src="./img/product/bael_fruit_tea_botanical.png"
+                                alt="Bael Fruit Tea tin with matching botanical artwork" loading="lazy" width="1024"
+                                height="1024">
+                        </div>
+                        <div class="sh-product-body">
+                            <h3 class="sh-product-name">Bael Fruit Tea</h3>
+                            <p class="sh-product-desc">A fragrant fruit tea with earthy bael notes and a softly sweet
+                                finish.</p>
+                            <div class="sh-product-actions">
+                                <a href="./bael-fruit-tea.html" class="btn-sh btn-view">
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product</a>
+                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Bael%20Fruit%20Tea.%20How%20much%20for%20this%3F"
+                                    class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
+                                    data-image="./img/product/bael_fruit_tea_botanical.png">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="sh-col">
+                    <article class="sh-product is-green">
+                        <div class="sh-product-img">
+                            <img src="./img/product/green_tea_botanical.png"
+                                alt="Green Tea tin with matching botanical artwork" loading="lazy" width="1024"
+                                height="1024">
+                        </div>
+                        <div class="sh-product-body">
+                            <h3 class="sh-product-name">Green Tea</h3>
+                            <p class="sh-product-desc">Fresh, delicate green tea with a light taste and a clean finish.
+                            </p>
+                            <div class="sh-product-actions">
+                                <a href="./green-tea.html" class="btn-sh btn-view">
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product</a>
+                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Green%20Tea.%20How%20much%20for%20this%3F"
+                                    class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
+                                    data-image="./img/product/green_tea_botanical.png">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="sh-col">
+                    <article class="sh-product is-purple">
+                        <div class="sh-product-img">
+                            <img src="./img/product/chamomile_sleeping_tea_botanical.png"
+                                alt="Chamomile Sleeping Tea tin with matching botanical artwork" loading="lazy"
+                                width="1024" height="1024">
+                        </div>
+                        <div class="sh-product-body">
+                            <h3 class="sh-product-name">Chamomile Sleeping Tea</h3>
+                            <p class="sh-product-desc">Soft chamomile floral notes for a gentle cup at the end of your
+                                day.
+                            </p>
+                            <div class="sh-product-actions">
+                                <a href="./chamomile-sleeping-tea.html" class="btn-sh btn-view">
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product</a>
+                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Chamomile%20Sleeping%20Tea.%20How%20much%20for%20this%3F"
+                                    class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
+                                    data-image="./img/product/chamomile_sleeping_tea_botanical.png">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+
+
+
+
+                <div class="sh-col">
+                    <article class="sh-product is-purple">
+                        <div class="sh-product-img">
+                            <img src="./img/product/black-breakfast-tea-botanical-transparent.png"
+                                alt="Breakfast Black Tea tin with rich black tea botanical artwork" loading="lazy"
+                                width="1024" height="1024">
+                        </div>
+                        <div class="sh-product-body">
+                            <h3 class="sh-product-name">Breakfast Black Tea</h3>
+                            <p class="sh-product-desc">
+                                A rich, bold, and full-bodied black tea with a smooth, refreshing taste.
+
+                            </p>
+                            <div class="sh-product-actions">
+                                <a href="./black-breakfast-tea.html" class="btn-sh btn-view">
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product
+                                </a>
+                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Breakfast%20Black%20Tea.%20How%20much%20for%20this%3F"
+                                    class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
+                                    data-image="./img/product/black-breakfast-tea-botanical-transparent.png">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+
+
+
+
+
+                <div class="sh-col">
+                    <article class="sh-product is-yellow">
+                        <div class="sh-product-img">
+                            <img src="./img/product/banana-black-tea.png"
+                                alt="Swissstytea Banana Black Tea tin by Chimmy" loading="lazy" width="848"
+                                height="1264">
+                        </div>
+
+                        <div class="sh-product-body">
+                            <h3 class="sh-product-name">Banana Black Tea</h3>
+
+                            <p class="sh-product-desc">
+                                Enjoy the rich taste of premium black tea with delightful
+                                banana flavour in every aromatic sip.
+                            </p>
+
+                            <div class="sh-product-actions">
+                                <a href="./banana-black-tea.html" class="btn-sh btn-view">
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                                    View Product
+                                </a>
+
+                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Swissstytea%20Banana%20Black%20Tea.%20How%20much%20for%20this%3F"
+                                    class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
+                                    data-image="./img/product/banana-black-tea.png">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                                    Order Now
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+
+
+
+
+                <div class="sh-col">
+                    <article class="sh-product is-yellow">
+                        <div class="sh-product-img">
+                            <img src="./img/product/ginger-lemongrass-tea.png"
+                                alt="Ginger Lemongrass Tea tin with matching botanical artwork" loading="lazy"
+                                width="1024" height="1024">
+                        </div>
+                        <div class="sh-product-body">
+                            <h3 class="sh-product-name">Ginger Lemongrass Tea</h3>
+                            <p class="sh-product-desc">Warming ginger and fresh, citrusy lemongrass in a bright,
+                                soothing cup.</p>
+                            <div class="sh-product-actions">
+                                <a href="./ginger-lemongrass-tea.html" class="btn-sh btn-view">
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product</a>
+                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Ginger%20Lemongrass%20Tea.%20How%20much%20for%20this%3F"
+                                    class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
+                                    data-image="./img/product/ginger-lemongrass-tea.png">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="sh-col">
+                    <article class="sh-product is-peach">
+                        <div class="sh-product-img">
+                            <img src="./img/product/chathai-sugercane-tea.png"
+                                alt="Chathai Sugarcane Tea tin with matching botanical artwork" loading="lazy"
+                                width="1024" height="1024">
+                        </div>
+                        <div class="sh-product-body">
+                            <h3 class="sh-product-name">Chathai Sugarcane Tea</h3>
+                            <p class="sh-product-desc">A refreshing tea with the natural, gentle sweetness of sugarcane.
+                            </p>
+                            <div class="sh-product-actions">
+                                <a href="./chathai-sugarcane-tea.html" class="btn-sh btn-view">
+                                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View Product</a>
+                                <a href="https://wa.me/61499568846?text=Hi%2C%20I%27m%20interested%20in%20Chathai%20Sugarcane%20Tea.%20How%20much%20for%20this%3F"
+                                    class="btn-sh btn-cart js-order" target="_blank" rel="noopener noreferrer"
+                                    data-image="./img/product/chathai-sugercane-tea.png">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order Now</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ============ INFO STRIP ============ -->
+    <section class="sh-info" id="why">
+        <div class="container-xl">
+
+            <!-- Features -->
+            <div class="row row-cols-3 row-cols-md-6 g-4">
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <p>Natural<br>Ingredients</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-heart"></i></div>
+                    <p>No Artificial<br>Flavours</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-spa"></i></div>
+                    <p>Soothing<br>&amp; Refreshing</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <p>Perfect for<br>Daily Life</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-solid fa-gift"></i></div>
+                    <p>A Sweeter<br>You</p>
+                </div>
+                <div class="col sh-feature">
+                    <div class="sh-feature-icon"><i class="fa-regular fa-heart"></i></div>
+                    <p>Made with<br>Love</p>
+                </div>
+            </div>
+
+            <!-- Available at -->
+            <div class="sh-avail">
+                <span class="sh-avail-label"><i class="fa-solid fa-cart-shopping"></i> Available at</span>
+                <ul class="sh-avail-list">
+                    <li><a href="https://YOUR-SHOPIFY-STORE-LINK" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-shopify"></i> Shopify</a></li>
+                    <li><a href="https://YOUR-AMAZON-STORE-LINK" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-amazon"></i> Amazon</a></li>
+                    <li class="shopee"><a href="https://YOUR-SHOPEE-STORE-LINK" target="_blank" rel="noopener"><i
+                                class="fa-solid fa-bag-shopping"></i> Shopee</a></li>
+                    <li class="temu"><a href="https://YOUR-TEMU-STORE-LINK" target="_blank" rel="noopener"><i
+                                class="fa-solid fa-store"></i> Temu</a></li>
+                    <li><a href="https://www.swisstytea.com" target="_blank" rel="noopener"><i
+                                class="fa-solid fa-globe"></i> Online Store</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact bar -->
+            <ul class="sh-contact-bar">
+                <li>
+                    <a href="https://www.instagram.com/swisstytea" target="_blank" rel="noopener">
+                        <span class="ico ico-ig"><i class="fa-brands fa-instagram"></i></span> Swisstytea
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/@swisstytea" target="_blank" rel="noopener">
+                        <span class="ico ico-tt"><i class="fa-brands fa-tiktok"></i></span> Swisstytea
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:swissty@swisstytea.com">
+                        <span class="ico ico-mail"><i class="fa-regular fa-envelope"></i></span> swissty@swisstytea.com
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/61499568846?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20teas."
+                        target="_blank" rel="noopener">
+                        <span class="ico ico-wa"><i class="fa-brands fa-whatsapp"></i></span> +61 499 568 846
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Website + ABN -->
+            <p class="sh-info-foot">
+                <i class="fa-solid fa-globe"></i>
+                <a href="https://www.swisstytea.com" target="_blank" rel="noopener">www.Swisstytea.com</a>
+                <span class="sep">|</span>
+                ABN 74 882 859 107 &nbsp;Australia Registered Business
+            </p>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ============ BANNER WALLPAPER ============ -->
+    <section class="sh-banner" id="banner">
+        <div class="sh-banner-art" aria-hidden="true">
+            <img src="./img/product/product-bottom-banner.jpeg" alt="" loading="lazy">
+        </div>
+
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="sh-banner-copy">
+                        <p class="sh-eyebrow sh-story-eyebrow">With Love From SwissTea</p>
+                        <h2 class="sh-banner-title">
+                            All the Love &amp; Soul in Every Cup <i class="fa-solid fa-heart"></i>
+                        </h2>
+                        <p class="sh-banner-text">
+                            Fresh herbs, golden honey and a little Swiss magic, steeped into every stick.
+                            Pick your favourite blend and let us bring a calm, happy moment to your day.
+                        </p>
+                        <a href="https://wa.me/61499568846?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20teas."
+                            class="btn-sh btn-sh-primary" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i> Chat With Us
+                        </a>
+                        <ul class="sh-banner-tags">
+                            <li>Pure</li>
+                            <li>Natural</li>
+                            <li>Swiss Inspired</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- real text for accessibility / SEO since the image is decorative -->
+        <span class="visually-hidden">Swissytea by Chimmy - with all the love and soul from SwissTea</span>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="sh-footer" id="contact">
+        <div class="container-xl">
+            <div class="row g-4 g-lg-5">
+
+                <!-- Brand -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Empty logo placeholder: replace the src with your logo -->
+                    <img class="sh-footer-logo"
+                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        alt="Swissherb Tea logo">
+                    <p class="sh-footer-about">
+                        Pure, natural Swissty,Srilankan teas blended with the finest herbs, for a calm and happy moment
+                        in
+                        every cup.
+                    </p>
+                    <ul class="sh-social">
+                        <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
+                        <li><a href="https://wa.me/61499568846" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                                    class="fa-brands fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick links -->
+                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+                    <h3 class="sh-footer-title">Quick Links</h3>
+                    <ul class="sh-footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#why">Why Swisstytea</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Our teas -->
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h3 class="sh-footer-title">Our Teas</h3>
+                    <ul class="sh-footer-links">
+                        <li><a href="./sweet-black-honey-tea.html">Sweet black honey tea</a></li>
+                        <li><a href="./ginger-honey-lemon-tea.html">Ginger honey lemon</a></li>
+                        <li><a href="./bael-fruit-tea.html">Bael fruit</a></li>
+                        <li><a href="./green-tea.html">Green tea</a></li>
+                        <li><a href="./chamomile-sleeping-tea.html">Sleeping chamomile tea</a></li>
+                        <li><a href="./black-breakfast-tea.html">Black breakfast tea</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <h3 class="sh-footer-title">Get In Touch</h3>
+                    <ul class="sh-footer-contact">
+                        <li>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a href="https://wa.me/61499568846" target="_blank" rel="noopener">+61 499 568 846</a>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-envelope"></i>
+                            <a href="mailto:swissty@swisstytea.com">swissty@swisstytea.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Inspired by the Swiss Alps</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="sh-footer-bottom">
+                &copy; <span id="shYear">2026</span> Swissytea by Chimmy. Made with <i class="fa-solid fa-heart"></i>
+                and
+                a little Swiss magic.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('shYear').textContent = new Date().getFullYear();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.querySelectorAll('.js-order').forEach(function (a) {
+            var host = location.hostname;
+            var isLive = location.protocol.indexOf('http') === 0 && host !== 'localhost' && host !== '127.0.0.1';
+            if (isLive) {
+                var img = new URL(a.getAttribute('data-image'), location.href).href;
+                a.href += encodeURIComponent('\n' + img);
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+    <!-- Page sections go here (ids: story, shop, why, reviews, contact) -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function () {
+            var $nav = $('#mainNav');
+
+            // Sticky nav gets a background after scrolling
+            $(window).on('scroll', function () {
+                $nav.toggleClass('scrolled', $(this).scrollTop() > 40);
+            }).trigger('scroll');
+
+            // Active link on click + close mobile menu
+            $('#navMenu .nav-link').on('click', function () {
+                $('#navMenu .nav-link').removeClass('active');
+                $(this).addClass('active');
+                if ($(window).width() < 992) {
+                    bootstrap.Collapse.getOrCreateInstance('#navMenu').hide();
+                }
+            });
+
+            // Smooth scroll to sections
+            $('a[href^="#"]').on('click', function (e) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    e.preventDefault();
+                    $('html, body').animate({ scrollTop: target.offset().top - 70 }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
