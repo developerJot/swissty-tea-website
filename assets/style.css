@@ -15,7 +15,7 @@ a {
 
     /* PATHS: put your own files here */
     /* --hero-bg: url('./img/hero-background.png'); */
-    --hero-bg: url('../img/updated-tea-banner.png');
+    --hero-bg: url('../img/IMG-20261108-WA0014.jpg');
 
 }
 
@@ -92,7 +92,7 @@ body {
 /* ---------- Hero ---------- */
 .sh-hero {
     position: relative;
-    min-height: 755px;
+    min-height: 980px;
     /* ← change this number to make it taller or shorter */
     background-color: var(--sh-bg);
     background-image: var(--hero-bg);
